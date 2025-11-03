@@ -10,7 +10,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "predeploy": "expo export --platform web",
-    "deploy": "gh-pages -d dist",
+    "deploy": "echo 'edengardenstay.com' > dist/CNAME && gh-pages -d dist",
     "lint": "expo lint"
   },
   "dependencies": {
