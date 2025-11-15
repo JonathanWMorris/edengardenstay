@@ -47,12 +47,40 @@
             font-size: 2rem;
             text-align: center;
         }
+
+        .email {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .email a {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .email a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .email a:active {
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Eden Garden Stay</h1>
         <img src="./image.png" alt="Display Image">
+        <p class="email"><a href="mailto:edengardenpky@gmail.com">Contact US</a></p>
     </div>
 </body>
 </html>
