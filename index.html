@@ -3,262 +3,474 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Display</title>
+    <title>Eden Garden Stay | Private Luxury Stay in Bangalore</title>
+    <meta name="description" content="Eden Garden Stay offers a private luxury stay with an indoor pool, elegant interiors, strong WiFi, and event-friendly spaces.">
+    <meta name="theme-color" content="#18361d">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --forest: #18361d;
+            --forest-soft: #295232;
+            --sage: #eaf1e7;
+            --cream: #fcf7ed;
+            --gold: #f4c95d;
+            --ink: #1f2a22;
+            --muted: #58655c;
+            --line: rgba(24, 54, 29, 0.12);
+            --shadow: 0 18px 50px rgba(24, 54, 29, 0.14);
+            --radius-lg: 28px;
+            --radius-md: 18px;
+            --wrap: min(1120px, calc(100vw - 32px));
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             min-height: 100vh;
-            background: white;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            margin: 0;
-            padding: 0;
+            background:
+                radial-gradient(circle at top right, rgba(244, 201, 93, 0.18), transparent 28%),
+                linear-gradient(180deg, #f7f2e8 0%, #ffffff 24%, #f8faf7 100%);
+            color: var(--ink);
+            font-family: "Manrope", sans-serif;
+            line-height: 1.6;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            backdrop-filter: blur(14px);
+            background: rgba(252, 247, 237, 0.9);
+            border-bottom: 1px solid rgba(24, 54, 29, 0.08);
         }
 
         .announcement-banner {
-            background: #f4c95d;
-            color: #1D451F;
-            display: block;
+            background: linear-gradient(90deg, #f3c756 0%, #f0d990 50%, #f3c756 100%);
+            color: var(--forest);
             text-align: center;
-            font-size: 0.95rem;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            padding: 10px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 101;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 10px 16px;
         }
 
         .navbar {
-            background: #1D451F;
-            padding: 15px 40px;
+            width: var(--wrap);
+            margin: 0 auto;
+            padding: 16px 0;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 40px;
-            z-index: 100;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .navbar-left,
+        .navbar-menu {
+            display: flex;
+            align-items: center;
         }
 
         .navbar-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
+            gap: 14px;
         }
 
         .navbar-logo {
-            height: 40px;
-            width: auto;
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.72);
+            padding: 4px;
+            box-shadow: 0 8px 24px rgba(24, 54, 29, 0.12);
         }
 
         .navbar-brand {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
             text-decoration: none;
-            transition: opacity 0.3s ease;
         }
 
-        .navbar-brand:hover {
-            opacity: 0.8;
+        .brand-title {
+            display: block;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 2rem;
+            line-height: 0.95;
+            font-weight: 700;
+            color: var(--forest);
+        }
+
+        .brand-subtitle {
+            display: block;
+            color: var(--muted);
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         .navbar-menu {
-            display: flex;
-            gap: 20px;
-            align-items: center;
+            gap: 10px;
         }
 
         .navbar-menu a {
-            color: white;
             text-decoration: none;
-            padding: 10px 25px;
-            border-radius: 25px;
-            transition: background 0.3s ease;
-            font-weight: 500;
+            color: var(--forest);
+            font-weight: 700;
+            padding: 10px 16px;
+            border-radius: 999px;
+            transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
         }
 
-        .navbar-menu a:hover {
-            background: rgba(255, 255, 255, 0.1);
+        .navbar-menu a:hover,
+        .navbar-menu a:focus-visible {
+            background: rgba(24, 54, 29, 0.08);
+            outline: none;
+            transform: translateY(-1px);
         }
 
-        @media (max-width: 1024px) {
-            .announcement-banner {
-                font-size: 0.85rem;
-                padding: 9px 16px;
-            }
+        .navbar-menu .nav-cta {
+            background: var(--forest);
+            color: white;
+            box-shadow: 0 12px 24px rgba(24, 54, 29, 0.22);
+        }
 
-            .navbar {
-                padding: 15px 20px;
-                top: 35px;
-            }
+        .navbar-menu .nav-cta:hover,
+        .navbar-menu .nav-cta:focus-visible {
+            background: #102515;
+        }
 
-            .navbar-left {
-                gap: 10px;
-            }
-
-            .navbar-logo {
-                height: 30px;
-            }
-
-            .navbar-brand {
-                font-size: 1rem;
-            }
-
-            .navbar-menu {
-                gap: 10px;
-            }
-
-            .navbar-menu a {
-                padding: 8px 15px;
-                font-size: 0.9rem;
-            }
+        main section {
+            width: var(--wrap);
+            margin: 0 auto;
         }
 
         .hero-section {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 44px 0 28px;
         }
 
-        .hero-section img {
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.08fr;
+            gap: 32px;
+            align-items: stretch;
+        }
+
+        .hero-copy {
+            padding: 28px 0;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 999px;
+            background: rgba(244, 201, 93, 0.22);
+            color: var(--forest);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 8px 14px;
+            margin-bottom: 18px;
+        }
+
+        .hero-copy h1,
+        .section-heading h2,
+        .gallery-copy h2,
+        .contact-card h2 {
+            font-family: "Cormorant Garamond", serif;
+            line-height: 0.95;
+            color: var(--forest);
+        }
+
+        .hero-copy h1 {
+            font-size: clamp(2.9rem, 5.2vw, 4.9rem);
+            margin-bottom: 18px;
+        }
+
+        .hero-copy p {
+            color: var(--muted);
+            font-size: 1.08rem;
+            max-width: 58ch;
+        }
+
+        .hero-actions,
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 26px;
+        }
+
+        .button-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 52px;
+            padding: 14px 22px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 800;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+        }
+
+        .button-link:hover,
+        .button-link:focus-visible {
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .button-primary {
+            background: var(--forest);
+            color: white;
+            box-shadow: 0 16px 32px rgba(24, 54, 29, 0.24);
+        }
+
+        .button-primary:hover,
+        .button-primary:focus-visible {
+            background: #112816;
+        }
+
+        .button-secondary {
+            background: rgba(24, 54, 29, 0.08);
+            color: var(--forest);
+            border: 1px solid rgba(24, 54, 29, 0.08);
+        }
+
+        .button-secondary:hover,
+        .button-secondary:focus-visible {
+            background: rgba(24, 54, 29, 0.14);
+        }
+
+        .hero-stats {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .hero-stats li {
+            padding: 18px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(24, 54, 29, 0.08);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--forest);
+        }
+
+        .stat-label {
+            display: block;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .hero-visual {
+            position: relative;
+            min-height: 640px;
+            border-radius: 36px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: linear-gradient(180deg, #d4dbe0 0%, #dfe8dc 100%);
+        }
+
+        .hero-visual img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
+            object-position: center top;
+            transform: scale(0.92);
+            transform-origin: center center;
         }
 
         .hero-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(15, 23, 14, 0.06) 0%, rgba(15, 23, 14, 0.38) 100%);
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: white;
-            padding: 20px;
+        .hero-note {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            max-width: 260px;
+            padding: 18px 20px;
+            border-radius: 22px;
+            background: rgba(252, 247, 237, 0.9);
+            color: var(--forest);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
         }
 
-        .hero-content h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        .hero-note strong {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 6px;
         }
 
-        .hero-content p {
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        .hero-note span {
+            color: var(--muted);
+            font-size: 0.92rem;
         }
 
-        @media (max-width: 1024px) {
-            .hero-content h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
+        .section-shell {
+            padding: 34px 0;
         }
 
         .features-section {
-            background: #f9f9f9;
-            padding: 60px 40px;
-            width: 100%;
+            padding-top: 24px;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .section-heading h2,
+        .gallery-copy h2,
+        .contact-card h2 {
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            margin-bottom: 10px;
+        }
+
+        .section-heading p,
+        .gallery-copy p,
+        .contact-card p,
+        .feature-item p,
+        .detail-card p,
+        .footer-copy p {
+            color: var(--muted);
         }
 
         .features-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .feature-item,
+        .detail-card,
+        .gallery-copy,
+        .contact-card {
+            background: rgba(255, 255, 255, 0.78);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
         }
 
         .feature-item {
-            text-align: center;
-            padding: 20px;
-            transition: transform 0.3s ease;
+            padding: 26px 24px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         .feature-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
+            box-shadow: 0 24px 54px rgba(24, 54, 29, 0.18);
         }
 
         .feature-item i {
-            font-size: 3rem;
-            color: #1D451F;
-            margin-bottom: 15px;
+            width: 56px;
+            height: 56px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            font-size: 1.45rem;
+            color: var(--forest);
+            background: var(--sage);
+            margin-bottom: 16px;
         }
 
-        .feature-item h3 {
-            font-size: 1.1rem;
-            color: #333;
+        .feature-item h3,
+        .detail-card h3 {
+            font-size: 1.15rem;
+            color: var(--forest);
+            margin-bottom: 8px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .detail-card {
+            padding: 24px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 22px;
+            align-items: start;
+        }
+
+        .gallery-copy {
+            padding: 28px;
+            position: sticky;
+            top: 126px;
+        }
+
+        .gallery-copy ul {
+            list-style: none;
+            margin-top: 18px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .gallery-copy li {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            color: var(--ink);
             font-weight: 600;
         }
 
-        @media (max-width: 1024px) {
-            .features-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-
-            .features-section {
-                padding: 40px 20px;
-            }
-
-            .feature-item {
-                padding: 10px;
-            }
-
-            .feature-item i {
-                font-size: 2rem;
-                margin-bottom: 10px;
-            }
-
-            .feature-item h3 {
-                font-size: 0.85rem;
-            }
+        .gallery-copy li i {
+            color: var(--forest-soft);
         }
 
         .container {
-            background: white;
-            padding: 40px 40px 60px 40px;
-            max-width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: calc(100vh - 570px);
-            justify-content: center;
+            background: linear-gradient(180deg, rgba(234, 241, 231, 0.42) 0%, rgba(255, 255, 255, 0.72) 100%);
+            padding: 28px;
+            border-radius: 28px;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
         }
 
         .carousel-container {
             position: relative;
-            width: 100%;
-            max-width: 1200px;
             overflow: hidden;
+            border-radius: 22px;
+            background: white;
         }
 
         .carousel {
@@ -271,85 +483,164 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 540px;
+            background: linear-gradient(180deg, rgba(234, 241, 231, 0.5), rgba(255, 255, 255, 0.95));
         }
 
         .carousel-slide img {
-            max-width: 100%;
-            max-height: 80vh;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            height: 540px;
+            object-fit: cover;
+            cursor: pointer;
         }
 
         .carousel-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(29, 69, 31, 0.8);
+            background: rgba(24, 54, 29, 0.82);
             color: white;
             border: none;
-            padding: 15px 20px;
             cursor: pointer;
-            font-size: 1.5rem;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            font-size: 1.1rem;
+            border-radius: 999px;
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.3s ease;
+            transition: background 0.25s ease, transform 0.25s ease;
             z-index: 10;
         }
 
-        .carousel-btn:hover {
-            background: rgba(29, 69, 31, 1);
+        .carousel-btn:hover,
+        .carousel-btn:focus-visible {
+            background: #102515;
+            outline: none;
         }
 
         .carousel-btn.prev {
-            left: 10px;
+            left: 16px;
         }
 
         .carousel-btn.next {
-            right: 10px;
+            right: 16px;
         }
 
         .carousel-indicators {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 18px;
         }
 
         .indicator {
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: #ccc;
+            background: rgba(24, 54, 29, 0.2);
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: transform 0.25s ease, background 0.25s ease;
         }
 
         .indicator.active {
-            background: #1D451F;
+            background: var(--forest);
+            transform: scale(1.15);
         }
 
-        .carousel-slide img {
-            cursor: pointer;
+        .contact-section {
+            padding-bottom: 52px;
+        }
+
+        .contact-card {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 24px;
+            align-items: center;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, rgba(24, 54, 29, 0.96), rgba(41, 82, 50, 0.92)),
+                linear-gradient(180deg, white, white);
+            color: white;
+        }
+
+        .contact-card h2,
+        .contact-card p,
+        .contact-card .contact-list li,
+        .contact-card .button-secondary {
+            color: white;
+        }
+
+        .contact-card .button-secondary {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.18);
+        }
+
+        .contact-card .button-secondary:hover,
+        .contact-card .button-secondary:focus-visible {
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .contact-list {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+
+        .contact-list i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-aside {
+            padding: 24px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .contact-aside h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-aside p {
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        .footer {
+            width: var(--wrap);
+            margin: 0 auto;
+            padding: 0 0 36px;
+        }
+
+        .footer-copy {
+            padding-top: 24px;
+            border-top: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
         }
 
         .lightbox {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            inset: 0;
+            background: rgba(11, 17, 12, 0.92);
             z-index: 1000;
             justify-content: center;
             align-items: center;
+            padding: 24px;
         }
 
         .lightbox.active {
@@ -357,167 +648,364 @@
         }
 
         .lightbox img {
-            max-width: 95%;
-            max-height: 95%;
-            object-fit: contain;
-            border-radius: 10px;
+            width: auto;
+            max-width: min(1100px, 100%);
+            max-height: 90vh;
+            border-radius: 20px;
+            box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
         }
 
         .lightbox-close {
             position: absolute;
-            top: 20px;
-            right: 40px;
+            top: 18px;
+            right: 24px;
             color: white;
-            font-size: 40px;
+            font-size: 2.4rem;
             font-weight: bold;
             cursor: pointer;
             background: none;
             border: none;
-            transition: opacity 0.3s ease;
+            line-height: 1;
         }
 
-        .lightbox-close:hover {
-            opacity: 0.7;
+        @media (max-width: 980px) {
+            .section-heading,
+            .contact-card,
+            .gallery-grid,
+            .hero-grid,
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar-menu {
+                flex-wrap: wrap;
+            }
+
+            .hero-visual,
+            .carousel-slide,
+            .carousel-slide img {
+                min-height: 420px;
+                height: 420px;
+            }
+
+            .hero-visual {
+                min-height: 560px;
+            }
+
+            .features-container,
+            .details-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .gallery-copy {
+                position: static;
+            }
         }
 
-        h1 {
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 2rem;
-            text-align: center;
-        }
+        @media (max-width: 720px) {
+            :root {
+                --wrap: min(1120px, calc(100vw - 22px));
+            }
 
-        .buttons {
-            margin-top: 30px;
-            text-align: center;
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+            .announcement-banner {
+                font-size: 0.76rem;
+                line-height: 1.4;
+            }
 
-        .buttons a {
-            display: inline-block;
-            padding: 15px 40px;
-            background: #1D451F;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-            box-shadow: 0 5px 15px rgba(29, 69, 31, 0.4);
-        }
+            .navbar {
+                padding: 14px 0;
+            }
 
-        .buttons a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(29, 69, 31, 0.6);
-            background: #0f2310;
-        }
+            .brand-title {
+                font-size: 1.55rem;
+            }
 
-        .buttons a:active {
-            transform: translateY(0);
+            .brand-subtitle {
+                font-size: 0.72rem;
+            }
+
+            .navbar-menu a,
+            .button-link {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-section {
+                padding-top: 26px;
+            }
+
+            .hero-copy {
+                padding-top: 8px;
+            }
+
+            .hero-stats,
+            .features-container,
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-note {
+                left: 14px;
+                right: 14px;
+                max-width: none;
+            }
+
+            .container,
+            .gallery-copy,
+            .contact-card,
+            .contact-aside {
+                padding: 20px;
+            }
+
+            .carousel-slide,
+            .carousel-slide img {
+                min-height: 300px;
+                height: 300px;
+            }
+
+            .hero-visual {
+                min-height: 380px;
+            }
+
+            .carousel-btn {
+                width: 42px;
+                height: 42px;
+            }
+
+            .footer-copy {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="announcement-banner">Seasonal Discount: 20% off during this spring</div>
+    <header class="site-header">
+        <div class="announcement-banner">Seasonal Discount: 20% off during this spring</div>
+        <nav class="navbar" aria-label="Primary navigation">
+            <div class="navbar-left">
+                <img src="./logo.png" alt="Eden Garden Stay Logo" class="navbar-logo">
+                <a href="#top" class="navbar-brand" aria-label="Eden Garden Stay home">
+                    <span class="brand-title">Eden Garden Stay</span>
+                    <span class="brand-subtitle">Private luxury stay</span>
+                </a>
+            </div>
+            <div class="navbar-menu">
+                <a href="#features">Amenities</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact" class="nav-cta">Book Your Stay</a>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="navbar-left">
-            <img src="./logo.png" alt="Eden Garden Stay Logo" class="navbar-logo">
-            <a href="/" class="navbar-brand">Eden Garden Stay</a>
-        </div>
-        <div class="navbar-menu">
-            <a href="/">Home</a>
-            <a href="mailto:edengardenpky@gmail.com?subject=Inquiry%20about%20Eden%20Garden%20Stay">Contact</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <img src="./front.png" alt="Eden Garden Stay">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Eden Garden Stay - Your Private Luxury Stay</h1>
-            <p>Where comfort, privacy, and elegance meet</p>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features-section">
-        <div class="features-container">
-            <div class="feature-item">
-                <i class="fas fa-swimming-pool"></i>
-                <h3>Private Indoor Pool</h3>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-tv"></i>
-                <h3>TV and WiFi</h3>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-wind"></i>
-                <h3>Air Conditioning</h3>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-laptop"></i>
-                <h3>Dedicated Work Space</h3>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-glass-cheers"></i>
-                <h3>Perfect for Parties</h3>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-shower"></i>
-                <h3>Modern Showers</h3>
-            </div>
-        </div>
-    </section>
-
-    <div class="container">
-        <div class="carousel-container">
-            <div class="carousel">
-                <div class="carousel-slide">
-                    <img src="./image.png" alt="Display Image" onclick="openLightbox('./image.png')">
+    <main id="top">
+        <section class="hero-section">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <span class="eyebrow"><i class="fas fa-leaf"></i> Elegant private retreat</span>
+                    <h1>Stay somewhere that feels like a private resort.</h1>
+                    <p>
+                        Eden Garden Stay is designed for guests who want comfort, privacy, and a refined setting for family time,
+                        celebrations, or a quiet luxury break. Spacious interiors, a private indoor pool, and event-friendly amenities
+                        create an experience that feels intentional from arrival to checkout.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button-link button-primary" href="mailto:edengardenpky@gmail.com?subject=Booking%20Inquiry%20for%20Eden%20Garden%20Stay">
+                            <i class="fas fa-envelope"></i> Email for Availability
+                        </a>
+                        <a class="button-link button-secondary" href="tel:+919880394102">
+                            <i class="fas fa-phone"></i> Call Us
+                        </a>
+                    </div>
+                    <ul class="hero-stats" aria-label="Highlights">
+                        <li>
+                            <span class="stat-value">Private</span>
+                            <span class="stat-label">Indoor pool and secluded stay experience</span>
+                        </li>
+                        <li>
+                            <span class="stat-value">Fast</span>
+                            <span class="stat-label">Reliable WiFi and workspace-friendly setup</span>
+                        </li>
+                        <li>
+                            <span class="stat-value">Flexible</span>
+                            <span class="stat-label">Suitable for families, groups, and gatherings</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="carousel-slide">
-                    <img src="./Side1.png" alt="Side Image" onclick="openLightbox('./Side1.png')">
-                </div>
-                <div class="carousel-slide">
-                    <img src="./Side2.png" alt="Side Image 2" onclick="openLightbox('./Side2.png')">
+                <div class="hero-visual">
+                    <img src="./front.png" alt="Front view of Eden Garden Stay">
+                    <div class="hero-overlay"></div>
+                    <div class="hero-note">
+                        <strong>Spring seasonal offer</strong>
+                        <span>Reserve during the season and enjoy 20% off on your stay.</span>
+                    </div>
                 </div>
             </div>
-            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
-        </div>
-        <div class="carousel-indicators">
-            <span class="indicator active" onclick="goToSlide(0)"></span>
-            <span class="indicator" onclick="goToSlide(1)"></span>
-            <span class="indicator" onclick="goToSlide(2)"></span>
-        </div>
-        <div class="buttons">
-            <a href="mailto:edengardenpky@gmail.com?subject=Inquiry%20about%20Eden%20Garden%20Stay">Contact US</a>
-            <a href="tel:+919880394102">Call Us</a>
-        </div>
-    </div>
+        </section>
 
-    <!-- Lightbox -->
+        <section class="section-shell features-section" id="features">
+            <div class="section-heading">
+                <div>
+                    <h2>Designed for comfort, work, and celebration.</h2>
+                    <p>Amenities that make the property useful for both relaxed stays and special occasions.</p>
+                </div>
+            </div>
+            <div class="features-container">
+                <article class="feature-item">
+                    <i class="fas fa-swimming-pool" aria-hidden="true"></i>
+                    <h3>Private Indoor Pool</h3>
+                    <p>Enjoy a sheltered pool experience with privacy built into the stay.</p>
+                </article>
+                <article class="feature-item">
+                    <i class="fas fa-tv" aria-hidden="true"></i>
+                    <h3>Entertainment Ready</h3>
+                    <p>TV, WiFi, and comfortable lounge zones for downtime after a long day.</p>
+                </article>
+                <article class="feature-item">
+                    <i class="fas fa-wind" aria-hidden="true"></i>
+                    <h3>Climate Controlled</h3>
+                    <p>Air conditioning keeps the stay comfortable across changing weather.</p>
+                </article>
+                <article class="feature-item">
+                    <i class="fas fa-laptop" aria-hidden="true"></i>
+                    <h3>Dedicated Work Space</h3>
+                    <p>Useful for guests balancing a quiet getaway with remote work needs.</p>
+                </article>
+                <article class="feature-item">
+                    <i class="fas fa-glass-cheers" aria-hidden="true"></i>
+                    <h3>Party Friendly Layout</h3>
+                    <p>Comfortable spaces that support small celebrations and memorable hosting.</p>
+                </article>
+                <article class="feature-item">
+                    <i class="fas fa-shower" aria-hidden="true"></i>
+                    <h3>Modern Bathrooms</h3>
+                    <p>Clean, polished facilities designed to match the premium feel of the property.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-shell">
+            <div class="details-grid">
+                <article class="detail-card">
+                    <h3>For weekend escapes</h3>
+                    <p>The layout makes it easy to unplug, settle in, and spend quality time indoors without feeling cramped.</p>
+                </article>
+                <article class="detail-card">
+                    <h3>For special occasions</h3>
+                    <p>Whether it is a birthday, reunion, or private gathering, the property has the right mix of comfort and atmosphere.</p>
+                </article>
+                <article class="detail-card">
+                    <h3>For longer stays</h3>
+                    <p>Comfort-focused amenities and work-friendly spaces make the property practical beyond a one-night visit.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-shell" id="gallery">
+            <div class="gallery-grid">
+                <div class="gallery-copy">
+                    <h2>See the spaces before you arrive.</h2>
+                    <p>
+                        Browse a quick look at the property. The gallery supports full-screen viewing if you want a closer look at the
+                        rooms and shared spaces.
+                    </p>
+                    <ul>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Swipe through key views of the property</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Tap any image to expand it</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Use the controls to navigate on desktop or mobile</li>
+                    </ul>
+                </div>
+                <div class="container">
+                    <div class="carousel-container" aria-label="Property image gallery">
+                        <div class="carousel">
+                            <div class="carousel-slide">
+                                <img src="./image.png" alt="Interior view of Eden Garden Stay" onclick="openLightbox('./image.png')">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./Side1.png" alt="Side angle showing the property space" onclick="openLightbox('./Side1.png')">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./Side2.png" alt="Another side view of Eden Garden Stay" onclick="openLightbox('./Side2.png')">
+                            </div>
+                        </div>
+                        <button class="carousel-btn prev" type="button" onclick="moveSlide(-1)" aria-label="Previous image">&#10094;</button>
+                        <button class="carousel-btn next" type="button" onclick="moveSlide(1)" aria-label="Next image">&#10095;</button>
+                    </div>
+                    <div class="carousel-indicators" aria-label="Gallery slide selection">
+                        <span class="indicator active" onclick="goToSlide(0)" aria-label="Go to first image"></span>
+                        <span class="indicator" onclick="goToSlide(1)" aria-label="Go to second image"></span>
+                        <span class="indicator" onclick="goToSlide(2)" aria-label="Go to third image"></span>
+                    </div>
+                    <div class="buttons">
+                        <a class="button-link button-primary" href="mailto:edengardenpky@gmail.com?subject=Inquiry%20about%20Eden%20Garden%20Stay">
+                            <i class="fas fa-envelope"></i> Contact Us
+                        </a>
+                        <a class="button-link button-secondary" href="tel:+919880394102">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell contact-section" id="contact">
+            <div class="contact-card">
+                <div>
+                    <h2>Ready to plan your stay?</h2>
+                    <p>
+                        Reach out for availability, booking questions, and event inquiries. The fastest options are email and phone.
+                    </p>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i> edengardenpky@gmail.com</li>
+                        <li><i class="fas fa-phone" aria-hidden="true"></i> +91 98803 94102</li>
+                        <li><i class="fas fa-tag" aria-hidden="true"></i> Seasonal spring offer now live</li>
+                    </ul>
+                    <div class="hero-actions">
+                        <a class="button-link button-primary" href="mailto:edengardenpky@gmail.com?subject=Booking%20Inquiry%20for%20Eden%20Garden%20Stay">
+                            <i class="fas fa-paper-plane"></i> Send Booking Inquiry
+                        </a>
+                        <a class="button-link button-secondary" href="tel:+919880394102">
+                            <i class="fas fa-phone-volume"></i> Speak to Us
+                        </a>
+                    </div>
+                </div>
+                <aside class="contact-aside">
+                    <h3>Best use of this page</h3>
+                    <p>Share this site with potential guests as a simple overview, then confirm availability and pricing directly by email or phone.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-copy">
+            <p>Eden Garden Stay</p>
+            <p>Private luxury stay with comfort, privacy, and event-friendly amenities.</p>
+        </div>
+    </footer>
+
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-        <img id="lightbox-img" src="" alt="Expanded view">
+        <button class="lightbox-close" type="button" onclick="closeLightbox()" aria-label="Close expanded image">&times;</button>
+        <img id="lightbox-img" src="" alt="Expanded gallery image">
     </div>
 
     <script>
         let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const indicators = document.querySelectorAll('.indicator');
-        const carousel = document.querySelector('.carousel');
+        let autoPlayHandle = null;
+        const slides = document.querySelectorAll(".carousel-slide");
+        const indicators = document.querySelectorAll(".indicator");
+        const carousel = document.querySelector(".carousel");
+        const carouselContainer = document.querySelector(".carousel-container");
 
         function updateCarousel() {
             carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
             indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === currentSlide);
+                indicator.classList.toggle("active", index === currentSlide);
             });
         }
 
@@ -533,30 +1021,55 @@
             updateCarousel();
         }
 
-        // Auto-play carousel (optional)
-        setInterval(() => {
-            moveSlide(1);
-        }, 10000);
+        function startAutoPlay() {
+            stopAutoPlay();
+            autoPlayHandle = window.setInterval(() => {
+                moveSlide(1);
+            }, 10000);
+        }
 
-        // Lightbox functions
+        function stopAutoPlay() {
+            if (autoPlayHandle) {
+                window.clearInterval(autoPlayHandle);
+                autoPlayHandle = null;
+            }
+        }
+
         function openLightbox(imageSrc) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
             lightboxImg.src = imageSrc;
-            lightbox.classList.add('active');
+            lightbox.classList.add("active");
+            document.body.style.overflow = "hidden";
         }
 
         function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
+            const lightbox = document.getElementById("lightbox");
+            lightbox.classList.remove("active");
+            document.body.style.overflow = "";
         }
 
-        // Close lightbox on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
+        carouselContainer.addEventListener("mouseenter", stopAutoPlay);
+        carouselContainer.addEventListener("mouseleave", startAutoPlay);
+        carouselContainer.addEventListener("focusin", stopAutoPlay);
+        carouselContainer.addEventListener("focusout", startAutoPlay);
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
                 closeLightbox();
             }
+
+            if (event.key === "ArrowLeft") {
+                moveSlide(-1);
+            }
+
+            if (event.key === "ArrowRight") {
+                moveSlide(1);
+            }
         });
+
+        updateCarousel();
+        startAutoPlay();
     </script>
 </body>
 </html>
