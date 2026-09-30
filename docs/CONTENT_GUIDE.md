@@ -2,16 +2,6 @@
 
 This site is managed directly in `index.html`.
 
-## Update the seasonal banner
-
-Search for:
-
-```html
-<div class="announcement-banner">...</div>
-```
-
-Change the text inside that element.
-
 ## Update the hero copy
 
 Search for the `hero-copy` section in `index.html`.
@@ -72,7 +62,6 @@ Search for the `:root` block near the top of `index.html`.
 The main tokens include:
 
 - `--forest`: primary dark green
-- `--gold`: promotional accent color
 - `--cream`: light warm surface color
 - `--wrap`: page content width
 

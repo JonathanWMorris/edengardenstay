@@ -19,7 +19,7 @@ Before deploying:
 
 1. Open `index.html` locally in a browser.
 2. Check mobile and desktop layouts.
-3. Verify the banner text, gallery images, and contact links.
+3. Verify the gallery images and contact links.
 4. Confirm the `mailto:` and `tel:` links still work.
 5. Confirm the lightbox opens and closes correctly.
 

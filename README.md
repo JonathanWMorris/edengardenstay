@@ -33,7 +33,7 @@ Then open `http://localhost:8000`.
 
 The page is split into these sections:
 
-1. Sticky header with promotional banner and navigation
+1. Sticky header with navigation
 2. Hero section with primary messaging and CTA buttons
 3. Amenities section
 4. Stay detail cards

@@ -17,7 +17,6 @@ This repository contains a static marketing website for Eden Garden Stay. The si
 - Prefer editing `index.html` directly for layout, styling, and content changes.
 - Keep dependencies minimal. The current page only relies on Google Fonts and Font Awesome CDN links.
 - Preserve existing contact details unless the user asks to change them.
-- Preserve the seasonal banner unless the user asks to change or remove it.
 - Do not remove documentation files when making design or content updates.
 
 ## Design Guidance
